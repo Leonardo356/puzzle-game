@@ -1,0 +1,416 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFBF46;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vmin;
+    text-align: center;
+    cursor: default;
+}
+
+:root{
+    --container-size: 80vmin;
+    --grid-size: 4;
+    --cell-size: 20vmin;
+    --cell-background:#E68475;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    :root{
+        --container-size : 72
+        --grid-size: 4;
+        --cell-size: 18vmin;
+        --cell-background:#E68475;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+    h1 {
+        font-size: 5vmin;
+        font-weight: 100;
+    }
+        
+    button {
+        width: 5vmin;
+        height: 5vmin;
+        font-family: 'Saira Condensed', sans-serif;
+        font-size: 2vmin;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid;
+        cursor: pointer;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    :root{
+        --container-size : 72
+        --grid-size: 4;
+        --cell-size: 18vmin;
+        --cell-background:#E68475;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+    h1 {
+        font-size: 5vmin;
+        font-weight: 100;
+    }
+        
+    button {
+        width: 5vmin;
+        height: 5vmin;
+        font-family: 'Saira Condensed', sans-serif;
+        font-size: 2vmin;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid;
+        cursor: pointer;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    :root{
+        --container-size : 72
+        --grid-size: 4;
+        --cell-size: 18vmin;
+        --cell-background:#E68475;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+    h1 {
+        font-size: 5vmin;
+        font-weight: 100;
+    }
+        
+    button {
+        width: 5vmin;
+        height: 5vmin;
+        font-family: 'Saira Condensed', sans-serif;
+        font-size: 2vmin;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid;
+        cursor: pointer;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    :root{
+        --container-size : 72
+        --grid-size: 4;
+        --cell-size: 18vmin;
+        --cell-background:#E68475;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+    h1 {
+        font-size: 5vmin;
+        font-weight: 100;
+    }
+        
+    button {
+        width: 5vmin;
+        height: 5vmin;
+        font-family: 'Saira Condensed', sans-serif;
+        font-size: 2vmin;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid;
+        cursor: pointer;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    :root{
+        --container-size : 72
+        --grid-size: 4;
+        --cell-size: 18vmin;
+        --cell-background:#E68475;
+        font-family: 'Saira Condensed', sans-serif;
+    }
+
+    h1 {
+        font-size: 5vmin;
+        font-weight: 100;
+    }
+    
+    button {
+        width: 5vmin;
+        height: 5vmin;
+        font-family: 'Saira Condensed', sans-serif;
+        font-size: 2vmin;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid;
+        cursor: pointer;
+    }
+}
+
+.frame {
+    width:  var(--container-size);
+    height: var(--container-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5A5353;
+    border: 15px solid #5A5353;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+}
+
+.container {
+    width: var(--container-size);
+    height: var(--container-size);
+    background-color: #E6CCBE;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size) var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size) var(--cell-size));
+    justify-content: center;
+    align-content: center;
+}
+
+.cell1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/ 2;
+    grid-row: 1/2;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  
+}
+
+.cell2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/ 3;
+    grid-row: 1/2;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/ 4;
+    grid-row: 1/2;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 4/ 5;
+    grid-row: 1/2;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/ 2;
+    grid-row: 2/3;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/ 3;
+    grid-row: 2/3;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/ 3;
+    grid-row: 2/3;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/ 4;
+    grid-row: 2/3;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 4/ 5;
+    grid-row: 2/3;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/ 2;
+    grid-row: 3/4;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/ 4;
+    grid-row: 3/4;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 4/ 5;
+    grid-row: 3/4;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell13 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/ 2;
+    grid-row: 4/5;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell14 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/ 3;
+    grid-row: 4/5;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cell15 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/ 4;
+    grid-row: 4/5;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: var(--cell-background);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cellCheck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 4/ 5;
+    grid-row: 4/5;
+    width: var(--cell-size);
+    height: var(--cell-size);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25%;
+}
+
+h1 {
+    font-size: 7vmin;
+    font-weight: 100;
+}
+
+button {
+    width: 8vmin;
+    height: 8vmin;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 3.5vmin;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid;
+    cursor: pointer;
+}
